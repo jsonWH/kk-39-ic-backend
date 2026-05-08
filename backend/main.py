@@ -70,7 +70,7 @@ def call_claude(system: str, prompt: str, pdf_texts: list[str]) -> str:
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     combined_text = "\n\n---NEW DOCUMENT---\n\n".join(pdf_texts)
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-5",
         max_tokens=2000,
         system=system,
         messages=[{"role": "user", "content": f"{combined_text}\n\n---\n\n{prompt}"}]
